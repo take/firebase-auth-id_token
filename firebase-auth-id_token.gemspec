@@ -2,7 +2,7 @@ require_relative 'lib/firebase/auth/id_token/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "firebase-auth-id_token"
-  spec.version       = Firebase::Auth::IdToken::Verifier::VERSION
+  spec.version       = Firebase::Auth::IDToken::VERSION
   spec.authors       = ["Takehiro Adachi"]
   spec.email         = ["takehiro0740@gmail.com"]
 

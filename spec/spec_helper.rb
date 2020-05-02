@@ -1,5 +1,5 @@
 require "bundler/setup"
-require "firebase/auth/id_token/verifier"
+require "firebase/auth/id_token"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
