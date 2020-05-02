@@ -4,7 +4,7 @@
 
 Add the following line to your Gemfile:
 
-```
+```ruby
 gem 'firebase-auth-id_token-verifier'
 ```
 
@@ -12,7 +12,7 @@ Then run `bundle install`
 
 Set the following config code as `config/initializers/firebase-auth-id_token-verifier.rb`
 
-```
+```ruby
 Firebase::Auth::IDToken::Verifier.configure do |config|
   config.firebase_project_id = 'YOUR_FIREBASE_PROJECT_ID'
 end
@@ -26,7 +26,7 @@ Use `Firebase::Auth::IDToken::Verifier#verify!` as below
 
 ### Rails API
 
-```
+```ruby
 class ApplicationController < ActionController::API
   before_action :verify_auth_token!
   before_action :authenticate_user!
@@ -57,7 +57,7 @@ class ApplicationController < ActionController::API
 end
 ```
 
-```
+```ruby
 class UsersController < ApplicationController
   skip_before_action :authenticate_user!
 
