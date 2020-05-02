@@ -22,6 +22,8 @@ end
 
 ## Usage
 
+Use `Firebase::Auth::IDToken::Verifier#verify!` as below
+
 ### Rails API
 
 ```
