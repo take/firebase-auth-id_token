@@ -1,6 +1,6 @@
-RSpec.describe Firebase::Auth::IdToken::Verifier do
+RSpec.describe Firebase::Auth::IDToken do
   it "has a version number" do
-    expect(Firebase::Auth::IdToken::Verifier::VERSION).not_to be nil
+    expect(Firebase::Auth::IDToken::VERSION).not_to be nil
   end
 
   describe '#verify!' do

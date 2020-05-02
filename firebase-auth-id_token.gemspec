@@ -1,14 +1,14 @@
-require_relative 'lib/firebase/auth/id_token/verifier/version'
+require_relative 'lib/firebase/auth/id_token/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "firebase-auth-id_token-verifier"
+  spec.name          = "firebase-auth-id_token"
   spec.version       = Firebase::Auth::IdToken::Verifier::VERSION
   spec.authors       = ["Takehiro Adachi"]
   spec.email         = ["takehiro0740@gmail.com"]
 
   spec.summary       = %q{Small gem which verifies your firebase auth ID token in server side}
   spec.description   = %q{}
-  spec.homepage      = "https://github.com/take/firebase-auth-id_token-verifier://github.com/take/firebase-auth-id_token-verifier"
+  spec.homepage      = "https://github.com/take/firebase-auth-id_token"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
 
@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = spec.homepage
-  spec.metadata["changelog_uri"] = "https://github.com/take/firebase-auth-id_token-verifier/blob/master/CHANGELOG.md"
+  spec.metadata["changelog_uri"] = "https://github.com/take/firebase-auth-id_token/blob/master/CHANGELOG.md"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.

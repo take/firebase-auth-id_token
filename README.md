@@ -5,15 +5,15 @@
 Add the following line to your Gemfile:
 
 ```ruby
-gem 'firebase-auth-id_token-verifier'
+gem 'firebase-auth-id_token'
 ```
 
 Then run `bundle install`
 
-Set the following config code as `config/initializers/firebase-auth-id_token-verifier.rb`
+Set the following config code as `config/initializers/firebase-auth-id_token.rb`
 
 ```ruby
-Firebase::Auth::IDToken::Verifier.configure do |config|
+Firebase::Auth::IDToken.configure do |config|
   config.firebase_project_id = 'YOUR_FIREBASE_PROJECT_ID'
 end
 ```
@@ -22,7 +22,7 @@ end
 
 ## Usage
 
-Use `Firebase::Auth::IDToken::Verifier#verify!` as below
+Use `Firebase::Auth::IDToken#verify!` as below
 
 ### Rails API
 
@@ -40,7 +40,7 @@ class ApplicationController < ActionController::API
   end
 
   def verify_auth_token!
-    @auth_token_payload = Firebase::Auth::IDToken::Verifier.new(id_token: auth_id_token).verify!
+    @auth_token_payload = Firebase::Auth::IDToken.new(auth_id_token).verify!
   # You should refetch ID token on the client side if you receive this 401
   rescue Firebase::Auth::IDToken::Expired
     render json: { error: { message: 'Auth ID token expired' } }, status: :unauthorized
