@@ -87,5 +87,5 @@ TBD
 
 ## FAQs
 
-Q. How to retrieve user informations?
-A. Best way right now would be by using [googleapis/google-api-ruby-client](https://github.com/googleapis/google-api-ruby-client)'s `Google::Apis::IdentitytoolkitV3::GetAccountInfoRequest``. [Sample code]()
+* Q. How to retrieve user informations?
+* A. Best way right now would be by using [googleapis/google-api-ruby-client](https://github.com/googleapis/google-api-ruby-client)'s `Google::Apis::IdentitytoolkitV3::GetAccountInfoRequest`. [Sample code]()
