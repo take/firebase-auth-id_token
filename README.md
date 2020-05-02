@@ -40,7 +40,7 @@ class ApplicationController < ActionController::API
   end
 
   def verify_auth_token!
-    @auth_token_payload = Firebase::Auth::IDToken::Verifier.new(auth_id_token).verify!
+    @auth_token_payload = Firebase::Auth::IDToken::Verifier.new(id_token: auth_id_token).verify!
   # You should refetch ID token on the client side if you receive this 401
   rescue Firebase::Auth::IDToken::Expired
     render json: { error: { message: 'Auth ID token expired' } }, status: :unauthorized
