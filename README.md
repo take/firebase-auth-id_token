@@ -18,6 +18,8 @@ Firebase::Auth::IDToken::Verifier.configure do |config|
 end
 ```
 
+`YOUR_FIREBASE_PROJECT_ID` could be found at https://console.firebase.google.com
+
 ## Usage
 
 ```
