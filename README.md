@@ -22,6 +22,8 @@ end
 
 ## Usage
 
+### Rails API
+
 ```
 class ApplicationController < ActionController::API
   before_action :verify_auth_token!
