@@ -14,7 +14,7 @@ Set the following config code as `config/initializers/firebase-auth-id_token.rb`
 
 ```ruby
 Firebase::Auth::IDToken.configure do |config|
-  config.firebase_project_id = 'YOUR_FIREBASE_PROJECT_ID'
+  config.project_id = 'YOUR_FIREBASE_PROJECT_ID'
 end
 ```
 
