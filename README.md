@@ -55,6 +55,30 @@ class ApplicationController < ActionController::API
 end
 ```
 
+```
+class UsersController < ApplicationController
+  skip_before_action :authenticate_user!
+
+  def create
+    @user = User.new(user_params)
+
+    if @user.save
+      head :created
+    else
+      render json: { errors: @user.errors.full_messages }
+    end
+  end
+
+  private
+
+  def user_params
+    params.require(:user)
+          .permit(:name)
+          .merge(firebase_auth_uid: @auth_token_payload['sub'])
+  end
+end
+```
+
 ## Errors
 
 TBD
