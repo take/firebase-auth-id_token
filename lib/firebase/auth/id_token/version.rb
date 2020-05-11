@@ -1,6 +1,6 @@
 module Firebase
   module Auth
-    module IDToken
+    class IDToken
       VERSION = "0.1.0"
     end
   end
