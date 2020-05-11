@@ -1,6 +1,6 @@
 module Firebase
   module Auth
-    module IDToken
+    class IDToken
       class Config
         attr_accessor :project_id
       end
