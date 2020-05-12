@@ -42,9 +42,9 @@ class ApplicationController < ActionController::API
   def verify_auth_token!
     @auth_token_payload = Firebase::Auth::IDToken.new(auth_id_token).verify!
   # You should refetch ID token on the client side if you receive this 401
-  rescue Firebase::Auth::IDToken::Expired
+  rescue Firebase::Auth::IDToken::Error::Expired
     render json: { error: { message: 'Auth ID token expired' } }, status: :unauthorized
-  rescue Firebase::Auth::IDToken::Error
+  rescue Firebase::Auth::IDToken::Error::VerificationFail
     # Notifying to Bugsnag/Sentry here will be nice
     head :unauthorized
   end
@@ -83,7 +83,24 @@ end
 
 ## Errors
 
-TBD
+### Important ones
+
+* `Firebase::Auth::IDToken::Error::ProjectIdNotSet` - raised if you haven't set `project_id`
+* `Firebase::Auth::IDToken::Error::Expired` - raised when the given token is expired, you should return an error code(e.g. 401) to the client so the client can refetch a new token
+
+### Others
+
+The following errors will basically be raised when the token is either unable to decode, or invalid.
+These shouldn't be raised in normal use case, so rescuing the parent class(which is `~::VerificationFail`) and notifying to error monitoring service might be good(see `Usage` section).
+
+* `Firebase::Auth::IDToken::Error::Expired`
+* `Firebase::Auth::IDToken::Error::CannotDecode`
+* `Firebase::Auth::IDToken::Error::IncorrectAlgorithm`
+* `Firebase::Auth::IDToken::Error::InvalidIat`
+* `FireBase::Auth::IDToken::Errrr::InvalidAud`
+* `FireBase::Auth::IDToken::Errrr::InvalidIssuer`
+* `FireBase::Auth::IDToken::Errrr::InvalidSub`
+* `FireBase::Auth::IDToken::Errrr::InvalidAuthTime`
 
 ## FAQs
 

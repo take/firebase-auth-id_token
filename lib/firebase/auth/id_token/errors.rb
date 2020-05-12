@@ -3,14 +3,17 @@ module Firebase
     class IDToken
       class Error
         class ProjectIdNotSet < StandardError ; end
-        class Expired < StandardError ; end
-        class CannotDecode < StandardError ; end
-        class IncorrectAlgorithm < StandardError ; end
-        class InvalidIat < StandardError ; end
-        class InvalidAud < StandardError ; end
-        class InvalidIssuer < StandardError ; end
-        class InvalidSub < StandardError ; end
-        class InvalidAuthTime < StandardError ; end
+
+        class VerificationFail < StandardError ; end
+
+        class Expired < VerificationFail ; end
+        class CannotDecode < VerificationFail ; end
+        class IncorrectAlgorithm < VerificationFail ; end
+        class InvalidIat < VerificationFail ; end
+        class InvalidAud < VerificationFail ; end
+        class InvalidIssuer < VerificationFail ; end
+        class InvalidSub < VerificationFail ; end
+        class InvalidAuthTime < VerificationFail ; end
       end
     end
   end
