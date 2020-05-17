@@ -1,0 +1,58 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://www.googleapis.com/robot/v1/metadata/x509/securetoken@system.gserviceaccount.com
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 17 May 2020 05:16:58 GMT
+      Expires:
+      - Sun, 17 May 2020 11:36:27 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin
+      - Referer
+      - X-Origin
+      Server:
+      - ESF
+      Content-Length:
+      - '1554'
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Cache-Control:
+      - public, max-age=22769, must-revalidate, no-transform
+      Age:
+      - '24'
+      Alt-Svc:
+      - h3-27=":443"; ma=2592000,h3-25=":443"; ma=2592000,h3-T050=":443"; ma=2592000,h3-Q050=":443";
+        ma=2592000,h3-Q049=":443"; ma=2592000,h3-Q048=":443"; ma=2592000,h3-Q046=":443";
+        ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "fajewofaefahleiuhfaluihf984761987hfaeufh": "-----BEGIN CERTIFICATE-----\nMIIDBjCCAe6gAwIBAgIBATANBgkqhkiG9w0BAQsFADAAMB4XDTIwMDUxOTA5Mjcx\nMVoXDTIxMDUxOTA5MjcxMVowADCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoC\nggEBAMs5wR91mieGwHREzzqmADoLqdPkvfjjGidrbuIuywEeOxMIhqImb9QaiSp/\n/bdCj41fpNgl+M7k2P1BHQ9v7jcjp1j926yR+Nn7y3TrYefjBolU29/Vq4ImpZ6v\n9G9EGA/lUMd50Vg5JmPF7OPJmhlKSkJjjY2GYzyusXtWao0YUktKpCoNJ/UinnIN\nj7+GYgu/S/Xz6TkssFKo+7mo8qhWasWYsvPlwRW5sOSUwCNTfdugfzrpRMoiceNS\nzHSYjQ+AbYlwfScZh3lOiHy27BwiI/hQlvm0RF4Rin8wz2dAkWZqCqxV0gI3Vr5X\nEm8zQ1TNgkz1aZfrKLs3auEMYOsCAwEAAaOBijCBhzAJBgNVHRMEAjAAMAsGA1Ud\nDwQEAwIFIDAdBgNVHQ4EFgQU8+cC7sFc+UbU7RjNeEEoRlfo2xkwEwYDVR0lBAww\nCgYIKwYBBQUHAwEwDwYJYIZIAYb4QgENBAIWADAoBgNVHSMEITAfgBTz5wLuwVz5\nRtTtGM14QShGV+jbGaEEpAIwAIIBATANBgkqhkiG9w0BAQsFAAOCAQEAHRZiN/2x\nAmawAcK+oKaJWMjKLexEFWIIzBGRbO/sYJM8keqZK5axzB0TZeOZxrmr/Yjb1Fho\n2HQ5eGFDhRQnj193Cr/ovAiljbYrb1rLQfaFl+alKbwrEW6kYF179W6aDAvkEtSt\n4rgv1GQt4bYtOxWvk/EwBH7mr4VSxO1afsfsGSJPHDV/2GdnqDgs7hviAQagYND2\nZ4DF/OuWQPBFxI3D6v9+uhDUOf+1Zpy9QmFTLj7iVftdcV2pmFSAY/T+jhjDMGKI\nwjbe8uQK3zlKjoKR1btv34H1qSFLRbM9kk20Esr21vs566kQyznRB8rktZR9J+b7\nQgYj7+5ylh4gYw==\n-----END CERTIFICATE-----\n",
+          "faghewufhaui487412gkfiueagiu231faiuegfaf": "-----BEGIN CERTIFICATE-----\nMIIDBjCCAe6gAwIBAgIBATANBgkqhkiG9w0BAQsFADAAMB4XDTIwMDUxOTA5MzE0\nOFoXDTIxMDUxOTA5MzE0OFowADCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoC\nggEBAMnavzulhAg3aWgaGckFah4ap7NLajzGIUUNs+qfMxTGc/cqNmmErY6FShX1\nXSW7/2fQwlrDeV1fj7qH0oglXy+bVqnLDQI0TUP1PIBjRnqkBOZ9S2HFM+RFo9NC\nFq2AAOJaVCIIbckoH+5gdDJEyyBiAa2Nc6+0Aqw6oxpII+ReNM+sZuUMiE5XEURp\ncPpHIlHNGz3dbEiknjw2vmvJNBKmvMHFwC3X6j7c6CFRZ0MX9e/E+I5WCgsNLRSO\nIv47NPJ5UrEKKhGRpzO/ABC7ofuhCTnbF3Wrvdbwl8qC5AWBzu+wzNUaqHi3p4I8\nj6pmJzPHkqIPMzhOtzq8xw1Nu20CAwEAAaOBijCBhzAJBgNVHRMEAjAAMAsGA1Ud\nDwQEAwIFIDAdBgNVHQ4EFgQUXuUjBm58r6IUzN8OL1h4UY6RH9cwEwYDVR0lBAww\nCgYIKwYBBQUHAwEwDwYJYIZIAYb4QgENBAIWADAoBgNVHSMEITAfgBRe5SMGbnyv\nohTM3w4vWHhRjpEf16EEpAIwAIIBATANBgkqhkiG9w0BAQsFAAOCAQEAOegsmi+u\nmeYsEmiTre0UsZZ2Q/BGbKgxRo05yYUUJ9RtKz0V4Cqs2QszO3Xj+stsZLR/575S\n5p8HO/gOzIauH9EGOuMjZkmjWLFisnTZXnw0X69QF+Wj9Tozo/yxJ3WrNb5q2J3L\nzw0PYS0IbEiI32Gl4ZoWJ9Q3ObR42jq5SK6rJ5a0iaSVgg7er0ayuTj8fuCAhvXz\nmm475jm2bxHrRMsW/54nZsF6BfIpldfLzU3zhGk36syjh3J/MqFd3Dm3OIWcWqYt\n66y78YlvrhRI4y3MHIjUPxM9SOVXGXdnoPZX9jJlNjd2C8SKAMDowFZhoCX/IqoO\nalzeJ5eq8jOy7A==\n-----END CERTIFICATE-----\n"
+        }
+    http_version: null
+  recorded_at: Sun, 17 May 2020 05:17:22 GMT
+recorded_with: VCR 5.1.0

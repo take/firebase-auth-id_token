@@ -5,7 +5,6 @@ RSpec.describe Firebase::Auth::IDToken do
 
   describe '#verify!' do
     let(:jwk) { JWT::JWK.new(OpenSSL::PKey::RSA.new(2048)) }
-    let(:jwks) { { keys: [jwk.export] } }
     let(:alg) { 'RS256' }
     let(:auth_time) { (Time.now - 60).to_i }
     let(:iat) { Time.now.to_i }
@@ -49,8 +48,6 @@ RSpec.describe Firebase::Auth::IDToken do
         Firebase::Auth::IDToken.configure do |config|
           config.project_id = project_id
         end
-
-        expect_any_instance_of(described_class).to receive(:jwks).and_return(jwks)
       end
 
       context 'when the given ID token' do
@@ -74,8 +71,6 @@ RSpec.describe Firebase::Auth::IDToken do
         end
 
         context 'does not correspond to one of the public keys' do
-          let(:jwks) { { keys: [JWT::JWK.new(OpenSSL::PKey::RSA.new(2048)).export] } }
-
           it 'raises Firebase::Auth::IDToken::Error::CannotDecode' do
             expect {
               described_class.new(token).verify!
