@@ -1,10 +1,14 @@
 require 'securerandom'
+require 'webrick/https'
 
 RSpec.describe Firebase::Auth::IDToken do
   let(:project_id) { 'project-id' }
 
   describe '#verify!' do
-    let(:jwk) { JWT::JWK.new(OpenSSL::PKey::RSA.new(2048)) }
+    let(:cert_and_rsa) { WEBrick::Utils.create_self_signed_cert(2048, '', '') }
+    let(:certificate) { cert_and_rsa[0] }
+    let(:rsa_key) { cert_and_rsa[1] }
+    let(:kid) { SecureRandom.hex }
     let(:alg) { 'RS256' }
     let(:auth_time) { (Time.now - 60).to_i }
     let(:iat) { Time.now.to_i }
@@ -29,11 +33,16 @@ RSpec.describe Firebase::Auth::IDToken do
     let(:header) do
       {
         "alg" => alg,
-        "kid" => jwk.kid
+        "kid" => kid,
       }
     end
-    let(:token) { JWT.encode(payload, jwk.keypair, alg, header) }
+    let(:token) { JWT.encode(payload, rsa_key, alg, header) }
 
+    before do
+      allow_any_instance_of(Firebase::Auth::IDToken::PublicKeys).to(
+        receive(:public_keys_from_remote).and_return({ kid.to_s => certificate.to_pem })
+      )
+    end
 
     context 'when #config#project_id is not set' do
       it 'raises Firebase::Auth::IDToken::Error::ProjectIdNotSet' do
@@ -67,14 +76,6 @@ RSpec.describe Firebase::Auth::IDToken do
             expect {
               described_class.new(token).verify!
             }.to raise_error(Firebase::Auth::IDToken::Error::IncorrectAlgorithm)
-          end
-        end
-
-        context 'does not correspond to one of the public keys' do
-          it 'raises Firebase::Auth::IDToken::Error::CannotDecode' do
-            expect {
-              described_class.new(token).verify!
-            }.to raise_error(Firebase::Auth::IDToken::Error::CannotDecode)
           end
         end
 
@@ -121,7 +122,7 @@ RSpec.describe Firebase::Auth::IDToken do
         context 'does not have sub' do
           let(:token) do
             payload.delete('sub')
-            JWT.encode(payload, jwk.keypair, alg, header)
+            JWT.encode(payload, rsa_key, alg, header)
           end
 
           it 'raises Firebase::Auth::IDToken::Error::InvalidSub' do
@@ -154,7 +155,7 @@ RSpec.describe Firebase::Auth::IDToken do
         context 'auth time is not present' do
           let(:token) do
             payload.delete('auth_time')
-            JWT.encode(payload, jwk.keypair, alg, header)
+            JWT.encode(payload, rsa_key, alg, header)
           end
 
           it 'raises Firebase::Auth::IDToken::Error::InvalidAuthTime' do

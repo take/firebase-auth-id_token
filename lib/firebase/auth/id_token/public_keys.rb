@@ -43,7 +43,7 @@ module Firebase
 
         def initialize(kid:, certificate:)
           @kid = kid
-          @certificate = certificate
+          @certificate = OpenSSL::X509::Certificate.new(certificate)
         end
       end
     end
