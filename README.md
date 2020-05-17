@@ -97,10 +97,10 @@ These shouldn't be raised in normal use case, so rescuing the parent class(which
 * `Firebase::Auth::IDToken::Error::CannotDecode`
 * `Firebase::Auth::IDToken::Error::IncorrectAlgorithm`
 * `Firebase::Auth::IDToken::Error::InvalidIat`
-* `FireBase::Auth::IDToken::Errrr::InvalidAud`
-* `FireBase::Auth::IDToken::Errrr::InvalidIssuer`
-* `FireBase::Auth::IDToken::Errrr::InvalidSub`
-* `FireBase::Auth::IDToken::Errrr::InvalidAuthTime`
+* `FireBase::Auth::IDToken::Error::InvalidAud`
+* `FireBase::Auth::IDToken::Error::InvalidIssuer`
+* `FireBase::Auth::IDToken::Error::InvalidSub`
+* `FireBase::Auth::IDToken::Error::InvalidAuthTime`
 
 ## FAQs
 
