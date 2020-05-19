@@ -20,7 +20,7 @@ GEM
       coderay (~> 1.1)
       method_source (~> 1.0)
     public_suffix (4.0.5)
-    rake (12.3.1)
+    rake (12.3.3)
     rspec (3.8.0)
       rspec-core (~> 3.8.0)
       rspec-expectations (~> 3.8.0)
@@ -48,7 +48,7 @@ PLATFORMS
 DEPENDENCIES
   firebase-auth-id_token!
   pry
-  rake (~> 12.0)
+  rake (~> 12.3)
   rspec (~> 3.0)
   vcr
   webmock
