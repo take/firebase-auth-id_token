@@ -10,7 +10,7 @@ gem 'firebase-auth-id_token'
 
 Then run `bundle install`
 
-Set the following config code as `config/initializers/firebase-auth-id_token.rb`
+Set the following config code as `config/initializers/firebase_auth_id_token.rb`
 
 ```ruby
 Firebase::Auth::IDToken.configure do |config|
