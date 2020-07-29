@@ -5,11 +5,11 @@ module Firebase
   module Auth
     class IDToken
       class PublicKeys < Array
-        PUBLIC_KEYS_URI = 'https://www.googleapis.com/robot/v1/metadata/x509/securetoken@system.gserviceaccount.com'
+        PUBLIC_KEYS_URI = 'https://www.googleapis.com/robot/v1/metadata/x509/securetoken@system.gserviceaccount.com'.freeze
         private_constant :PUBLIC_KEYS_URI
 
-        class NotFound < StandardError ; end
-        class FailedToFetchFromRemote < StandardError ; end
+        class NotFound < StandardError; end
+        class FailedToFetchFromRemote < StandardError; end
 
         def initialize
           public_keys_from_remote.each do |kid, certificate|
@@ -18,11 +18,11 @@ module Firebase
         end
 
         def find_by!(kid:)
-          public_key = self.find { |public_key| public_key.kid == kid }
+          corresponding_public_key = find { |public_key| public_key.kid == kid }
 
-          raise NotFound unless public_key
+          raise NotFound, "given kid '#{kid}' not found in #{map(&:kid).join(', ')}" unless corresponding_public_key
 
-          public_key
+          corresponding_public_key
         end
 
         private

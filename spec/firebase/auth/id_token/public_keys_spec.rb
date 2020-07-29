@@ -35,7 +35,7 @@ RSpec.describe Firebase::Auth::IDToken::PublicKeys do
     end
 
     context 'when the corresponding public key does not exist' do
-      let(:kid) { '' }
+      let(:kid) { 'invalid kid' }
 
       it 'raises Firebase::Auth::IDToken::PublicKeys::NotFound' do
         VCR.use_cassette('v1_x509_public_keys_success') do
